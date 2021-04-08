@@ -1,5 +1,8 @@
 # ros2yolo_python(fast->use that)
 
+this project is basis in date of 2021/04/08
+
+
 ## getting weights_file
 https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
 is named <strong>yolov4.weights</strong> 
@@ -46,9 +49,30 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 
 
 
+-----------------------------------------------------------------------------------------------------------------
 
+## system setting
 
+    ### about yolo
 
+    notebook : HP-Pavilion-Gaming-Laptop-16-a0xxx
+    process : Intel® Core™ i7-10750H CPU @ 2.60GHz × 12
+    gpu1 : NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile]
+    gpu2 : Intel Corporation UHD Graphics
+    cuda: 11.2
+    cuDNN : v8.1.1
+    NVIDIA-SMI 460.39
+    Driver Version: 460.39
+    opencv :4.4.0
+    python :3.8.5
+    cmake : 3.20.0
+    os : Ubuntu 20.04.2 LTS x86_64
+
+    ### about ros2
+    
+    ros2 version : foxy
+
+-----------------------
 
 
 
