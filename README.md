@@ -42,6 +42,7 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 ------------------------------
 
 
+![example](https://user-images.githubusercontent.com/26535065/113983975-8b4bb900-9885-11eb-9fbd-6bf8b6c322c0.png)
 
 
 
