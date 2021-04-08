@@ -6,8 +6,6 @@ is named <strong>yolov4.weights</strong>
 
 you need .cfg, .names, .weights file for yolo in ros2
 if you download .weights file in that link, you put that in ~rosyolo_final/(in that dir, there are cfg folder, and then you can check .cfg and .names)
-
-<strong>and then, you need to move rosyolo_final folder to ~/home/(where has Music,pictures....)</strong>
   
 also  check rosyolo_final/ros2yolo/ros2yolo/ros2_yolo.py
 (there is key code for yolo data sending to ros2)  
@@ -34,10 +32,14 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-## use that
+## <strong>use that</strong>
 
 1. git clone https://github.com/Profrog/ros2yolo_python
-2. 
+2. colcon build
+3. source install/setup.bash
+4. ros2 run ros2yolo ros2_yolo
+
+------------------------------
 
 
 
