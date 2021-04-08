@@ -77,8 +77,8 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 -----------------------
 
 ## ros2 and yolo tutorial(for that setting)
-ros2 : https://docs.ros.org/en/foxy/Installation.html
-yolov4 : https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
+*ros2 : https://docs.ros.org/en/foxy/Installation.html
+*yolov4 : https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
 
 
 
