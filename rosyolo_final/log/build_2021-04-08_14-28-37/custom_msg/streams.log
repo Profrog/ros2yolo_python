@@ -1,6 +1,0 @@
-[0.012s] Invoking command in '/home/mingyu/rosyolo/rosyolo_final/build/custom_msg': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/local/bin/cmake --build /home/mingyu/rosyolo/rosyolo_final/build/custom_msg -- -j12 -l12
-[0.014s] CMake Error: The current CMakeCache.txt directory /home/mingyu/rosyolo/rosyolo_final/build/custom_msg/CMakeCache.txt is different than the directory /home/mingyu/rosyolo_final/build/custom_msg where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
-[0.019s] CMake Error: The source directory "/home/mingyu/rosyolo_final/custom_msg" does not exist.
-[0.019s] Specify --help for usage, or press the help button on the CMake GUI.
-[0.019s] make: *** [Makefile:719: cmake_check_build_system] Error 1
-[0.021s] Invoked command in '/home/mingyu/rosyolo/rosyolo_final/build/custom_msg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/local/bin/cmake --build /home/mingyu/rosyolo/rosyolo_final/build/custom_msg -- -j12 -l12
