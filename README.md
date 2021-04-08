@@ -1,4 +1,4 @@
-# ros2yolo_python
+# ros2yolo_python(fast->use that)
 
 ## getting weights_file
 https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
@@ -40,7 +40,6 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 4. ros2 run ros2yolo ros2_yolo
 
 ------------------------------
-
 
 
 
