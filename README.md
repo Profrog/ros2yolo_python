@@ -2,6 +2,8 @@
 
 this project is basis in date of 2021/04/08
 
+<strong>if you use this, yolo get image in your webcam and detect class(80) and there's coordinates on image{x,y,w,h} and label of class ,and original image send to ros2 as publish.</strong> 
+
 
 ## getting weights_file
 https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
@@ -78,7 +80,7 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 
 ## ros2 and yolo tutorial(for that setting)
 * ros2 : https://docs.ros.org/en/foxy/Installation.html
-* yolov4 : https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
+* yolov4 : https://github.com/AlexeyAB/darknet
 
 
 
