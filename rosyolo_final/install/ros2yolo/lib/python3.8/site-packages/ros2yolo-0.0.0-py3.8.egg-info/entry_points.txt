@@ -1,0 +1,3 @@
+[console_scripts]
+ros2_yolo = ros2yolo.ros2_yolo:main
+

@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_msg",
+  "non_idl_tuples": [
+    "/home/mingyu/rosyolo/vn300/src/custom_msg:msg/Vn300.msg"
+  ]
+}

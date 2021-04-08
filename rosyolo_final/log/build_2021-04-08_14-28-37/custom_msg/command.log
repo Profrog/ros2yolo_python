@@ -1,0 +1,2 @@
+Invoking command in '/home/mingyu/rosyolo/rosyolo_final/build/custom_msg': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/local/bin/cmake --build /home/mingyu/rosyolo/rosyolo_final/build/custom_msg -- -j12 -l12
+Invoked command in '/home/mingyu/rosyolo/rosyolo_final/build/custom_msg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/local/bin/cmake --build /home/mingyu/rosyolo/rosyolo_final/build/custom_msg -- -j12 -l12
