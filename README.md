@@ -54,6 +54,8 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 ## system setting
 
     ### about yolo
+    
+    yolo version : yolov4
 
     notebook : HP-Pavilion-Gaming-Laptop-16-a0xxx
     process : Intel® Core™ i7-10750H CPU @ 2.60GHz × 12
@@ -73,6 +75,11 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
     ros2 version : foxy
 
 -----------------------
+
+## ros2 and yolo tutorial(for that setting)
+ros2 : https://docs.ros.org/en/foxy/Installation.html
+yolov4 : https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
+
 
 
 
