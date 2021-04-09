@@ -29,7 +29,7 @@ https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
 
 ## 기본적인 이슈
 
-해당 패키지는 webcam를 필요로 합니다. 만약에 내장 웹캠이 없을 시에는 따로 웹캠을 구하여 usb포트로 연결하셔야 하며 그로인하여 코드가 작동하지 않는다면
+해당 패키지는 webcam를 필요로 합니다. 만약에 내장 웹캠이 없을 시에는 따로 웹캠을 구하여 usb포트로 연결하셔야 하며 그로 인하여 코드가 작동하지 않는다면
 <strong>vc = cv2.VideoCapture(0) # 0 = notebook_webcam, 2 = usb_webcam (in my computer)</strong> in ros2_yolo.py
 여기를 수정
 
