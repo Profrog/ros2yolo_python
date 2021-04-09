@@ -22,7 +22,7 @@ and check  what is
 * dir_cfg :  where is .cfg
 * dir_coco : where is .names
 
-*path1 is used for if you wnat sending yolo_image or original image to otehr directory
+*path1 is used for if you want sending yolo_image or original image to otehr directory
 
 ---------------------------------------------------------------------------------------
 
