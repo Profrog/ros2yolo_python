@@ -1,43 +1,46 @@
-# ros2yolo_python(fast->use that)
+# ros2yolo_python(빨리하려면 -> 사용법으)
 
-this project is basis in date of 2021/04/08
+해당 프로젝트는 2021/04/08에 작성
 
-<strong>if you use this, yolo get image in your webcam and detect class(80) and there's coordinates on image{x,y,w,h} and label of class ,and original image send to ros2 as publish.</strong> 
+<strong>본 프로젝트는 웹캠에서 이미지를 받아 yolo로 탐지 시킨 후 이미지 상에서의 좌표{x,y,w,h}와 라벨, 원본 데이터를 ros2에 publish해주는 package입니다</strong> 
 
 
-## getting weights_file
+## weights_file 얻기
 https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
-is named <strong>yolov4.weights</strong> 
+<strong>yolov4.weights</strong> 다운로드
 
-you need .cfg, .names, .weights file for yolo in ros2
-if you download .weights file in that link, you put that in ~rosyolo_final/(in that dir, there are cfg folder, and then you can check .cfg and .names)
+본 패키지를 돌리기 위해서는 .cfg, .names, .weights file이 필요합니다  
+.weights file를 다운로드 받고 ~rosyolo_final/ 폴더에 복사 붙여넣기 합니다(cfg folder가 있는 경로입니다)
   
-also  check rosyolo_final/ros2yolo/ros2yolo/ros2_yolo.py
-(there is key code for yolo data sending to ros2)  
+  
+또한 핵심 기능들은 해당 코드에서 확인할 수 있습니다 :rosyolo_final/ros2yolo/ros2yolo/ros2_yolo.py
+  
 
-and check  what is
+체크해야할 파라미터.
 * yolo_image : yolo + original_image -> .jpg(yolo result)
 * original_image : original_image -> .jpg(you want conveying to yolo)
 * dir_weights : where is .weights
 * dir_cfg :  where is .cfg
 * dir_coco : where is .names
 
-*path1 is used for if you wnat sending yolo_image or original image to otehr directory
+*path1는 절대 경로로 이미지를 보내고 싶을 때 응용하여 사용하시면 되겠습니다
 
 ---------------------------------------------------------------------------------------
 
-## basis issue
+## 기본적인 이슈
 
-this code use your webcam, if you don't have webcam in notebook you need other external webcam and usd connet to notebook
-modify  <strong>vc = cv2.VideoCapture(0) # 0 = notebook_webcam, 2 = usb_webcam (in my computer)</strong> in ros2_yolo.py
+해당 패키지는 webcam를 필요로 합니다. 만약에 내장 웹캠이 없을 시에는 따로 웹캠을 구하여 usb포트로 연결하셔야 하며 그로인하여 코드가 작동하지 않는다면
+<strong>vc = cv2.VideoCapture(0) # 0 = notebook_webcam, 2 = usb_webcam (in my computer)</strong> in ros2_yolo.py
+여기를 수정
 
-if you want to modify publishing frequency(basis is 1) modifiy <strong> ros2yolo_publisher = Ros2yoloPublisher(1) </strong>
+만약에 publishing 주기를 변경하고 싶다면(현재는 1초에 한 번씩 발행) <strong> ros2yolo_publisher = Ros2yoloPublisher(1) </strong> 여기를 수정.
 
-if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False) #it about detect_size. </strong> 
+yolo에서 다른 사이즈 기반의 이미지(기본 416* 416) 학습하였을 시에는  <strong> blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False) #it about detect_size. </strong> in ros2_yolo.py
+여기를 수정
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-## <strong>use that</strong>
+## <strong>사용법</strong>
 
 1. git clone https://github.com/Profrog/ros2yolo_python
 2. colcon build
@@ -53,7 +56,7 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 
 -----------------------------------------------------------------------------------------------------------------
 
-## system setting
+## 시스템 환경
 
     ### about yolo
     
@@ -78,7 +81,7 @@ if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dn
 
 -----------------------
 
-## ros2 and yolo tutorial(for that setting)
+## ros2와 yolov4 개발환경 셋팅을 위한 참조 
 * ros2 : https://docs.ros.org/en/foxy/Installation.html
 * yolov4 : https://github.com/AlexeyAB/darknet
 
