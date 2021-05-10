@@ -35,6 +35,8 @@ if you want to modify publishing frequency(basis is 1) modifiy <strong> ros2yolo
 
 if you need to other size in yolo(basis is 416*416) check <strong> blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False) #it about detect_size. </strong> 
 
+source /opt/ros/foxy/setup.bash
+
 ----------------------------------------------------------------------------------------------------------------------------
 
 ## <strong>use that</strong>
