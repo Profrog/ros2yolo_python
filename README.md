@@ -1,9 +1,9 @@
 # ros2yolo_python_yolomap
 
 ## start
-git clone https://github.com/Profrog/ros2yolo_python -b yolomap
-colcon build
-./rosyolo
+* git clone https://github.com/Profrog/ros2yolo_python -b yolomap
+* colcon build
+* ./rosyolo
 
 
 ---------------------------------------------------------------
