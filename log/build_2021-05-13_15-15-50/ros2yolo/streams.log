@@ -1,0 +1,22 @@
+[0.296s] Invoking command in '/home/mingyu/rosyolo_final/ros2yolo': PYTHONPATH=/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages:/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages:/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages:/home/mingyu/COCO/cocodataset/api/cocoapi/PythonAPI:/home/mingyu/COCO/cocodataset/api3/cocoapi/PythonAPI /usr/bin/python3 setup.py egg_info --egg-base ../build/ros2yolo build --build-base /home/mingyu/rosyolo_final/build/ros2yolo/build install --prefix /home/mingyu/rosyolo_final/install/ros2yolo --record /home/mingyu/rosyolo_final/build/ros2yolo/install.log --single-version-externally-managed
+[0.544s] running egg_info
+[0.545s] writing ../build/ros2yolo/ros2yolo.egg-info/PKG-INFO
+[0.545s] writing dependency_links to ../build/ros2yolo/ros2yolo.egg-info/dependency_links.txt
+[0.545s] writing entry points to ../build/ros2yolo/ros2yolo.egg-info/entry_points.txt
+[0.545s] writing requirements to ../build/ros2yolo/ros2yolo.egg-info/requires.txt
+[0.545s] writing top-level names to ../build/ros2yolo/ros2yolo.egg-info/top_level.txt
+[0.574s] reading manifest file '../build/ros2yolo/ros2yolo.egg-info/SOURCES.txt'
+[0.574s] writing manifest file '../build/ros2yolo/ros2yolo.egg-info/SOURCES.txt'
+[0.574s] running build
+[0.574s] running build_py
+[0.575s] running install
+[0.576s] running install_lib
+[0.578s] running install_data
+[0.579s] running install_egg_info
+[0.580s] removing '/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages/ros2yolo-0.0.0-py3.8.egg-info' (and everything under it)
+[0.581s] Copying ../build/ros2yolo/ros2yolo.egg-info to /home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages/ros2yolo-0.0.0-py3.8.egg-info
+[0.581s] running install_scripts
+[0.597s] Installing ros2_yolo script to /home/mingyu/rosyolo_final/install/ros2yolo/lib/ros2yolo
+[0.598s] Installing yolo_map script to /home/mingyu/rosyolo_final/install/ros2yolo/lib/ros2yolo
+[0.598s] writing list of installed files to '/home/mingyu/rosyolo_final/build/ros2yolo/install.log'
+[0.617s] Invoked command in '/home/mingyu/rosyolo_final/ros2yolo' returned '0': PYTHONPATH=/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages:/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages:/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages:/home/mingyu/COCO/cocodataset/api/cocoapi/PythonAPI:/home/mingyu/COCO/cocodataset/api3/cocoapi/PythonAPI /usr/bin/python3 setup.py egg_info --egg-base ../build/ros2yolo build --build-base /home/mingyu/rosyolo_final/build/ros2yolo/build install --prefix /home/mingyu/rosyolo_final/install/ros2yolo --record /home/mingyu/rosyolo_final/build/ros2yolo/install.log --single-version-externally-managed

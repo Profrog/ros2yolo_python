@@ -1,0 +1,5 @@
+  File "/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages/ros2yolo/yolo_map.py", line 190
+    else
+       ^
+SyntaxError: invalid syntax
+

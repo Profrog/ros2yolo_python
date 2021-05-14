@@ -1,0 +1,5 @@
+  File "/home/mingyu/rosyolo_final/install/ros2yolo/lib/python3.8/site-packages/ros2yolo/yolo_map.py", line 29
+    def point_mark(x1,x2,y1,y2,data)
+                                       ^
+SyntaxError: invalid syntax
+

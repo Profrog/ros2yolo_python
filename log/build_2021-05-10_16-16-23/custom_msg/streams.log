@@ -1,0 +1,213 @@
+[0.013s] Invoking command in '/home/mingyu/rosyolo_final/build/custom_msg': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake /home/mingyu/rosyolo_final/custom_msg -DCMAKE_INSTALL_PREFIX=/home/mingyu/rosyolo_final/install/custom_msg
+[0.060s] -- The C compiler identification is GNU 9.3.0
+[0.112s] -- The CXX compiler identification is GNU 9.3.0
+[0.117s] -- Check for working C compiler: /bin/cc
+[0.180s] -- Check for working C compiler: /bin/cc -- works
+[0.181s] -- Detecting C compiler ABI info
+[0.247s] -- Detecting C compiler ABI info - done
+[0.262s] -- Detecting C compile features
+[0.262s] -- Detecting C compile features - done
+[0.265s] -- Check for working CXX compiler: /bin/c++
+[0.349s] -- Check for working CXX compiler: /bin/c++ -- works
+[0.351s] -- Detecting CXX compiler ABI info
+[0.418s] -- Detecting CXX compiler ABI info - done
+[0.430s] -- Detecting CXX compile features
+[0.430s] -- Detecting CXX compile features - done
+[0.432s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.457s] -- Found PythonInterp: /bin/python3 (found suitable version "3.8.5", minimum required is "3") 
+[0.457s] -- Using PYTHON_EXECUTABLE: /bin/python3
+[0.675s] -- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.701s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.707s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.782s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.813s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.887s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.930s] -- Found geometry_msgs: 2.0.4 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.962s] -- Found sensor_msgs: 2.0.4 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[1.030s] -- Found ament_lint_auto: 0.9.6 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[1.080s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.110s] -- Found PythonInterp: /bin/python3 (found version "3.8.5") 
+[1.257s] -- Found ament_cmake_ros: 0.9.1 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[1.550s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.700s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.725s] -- Found PythonInterp: /bin/python3 (found suitable version "3.8.5", minimum required is "3.5") 
+[1.726s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[1.752s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.5", minimum required is "3.5") 
+[1.753s] -- Using PYTHON_EXECUTABLE: /bin/python3
+[1.753s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[1.753s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[1.773s] -- Found PythonExtra: .so  
+[1.871s] -- Configuring done
+[1.922s] -- Generating done
+[1.924s] -- Build files have been written to: /home/mingyu/rosyolo_final/build/custom_msg
+[1.932s] Invoked command in '/home/mingyu/rosyolo_final/build/custom_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake /home/mingyu/rosyolo_final/custom_msg -DCMAKE_INSTALL_PREFIX=/home/mingyu/rosyolo_final/install/custom_msg
+[1.934s] Invoking command in '/home/mingyu/rosyolo_final/build/custom_msg': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake --build /home/mingyu/rosyolo_final/build/custom_msg -- -j12 -l12
+[1.971s] [35m[1mScanning dependencies of target custom_msg__cpp[0m
+[1.971s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.981s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.194s] [35m[1mScanning dependencies of target custom_msg__rosidl_generator_c[0m
+[2.204s] [  6%] Built target custom_msg__cpp
+[2.205s] [  9%] [32mBuilding C object CMakeFiles/custom_msg__rosidl_generator_c.dir/rosidl_generator_c/custom_msg/msg/detail/ros2_yolo__functions.c.o[0m
+[2.216s] [ 19%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.216s] [ 19%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.216s] [ 19%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.246s] [ 22%] [32m[1mLinking C shared library libcustom_msg__rosidl_generator_c.so[0m
+[2.283s] [ 22%] Built target custom_msg__rosidl_generator_c
+[2.295s] [ 29%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.295s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.427s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_cpp[0m
+[2.442s] [ 32%] [32mBuilding CXX object CMakeFiles/custom_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_msg/msg/ros2_yolo__type_support.cpp.o[0m
+[2.454s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_introspection_cpp[0m
+[2.464s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_fastrtps_cpp[0m
+[2.467s] [ 35%] [32mBuilding CXX object CMakeFiles/custom_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_msg/msg/detail/ros2_yolo__type_support.cpp.o[0m
+[2.480s] [ 38%] [32mBuilding CXX object CMakeFiles/custom_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_msg/msg/detail/dds_fastrtps/ros2_yolo__type_support.cpp.o[0m
+[2.514s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_c[0m
+[2.527s] [ 41%] [32mBuilding CXX object CMakeFiles/custom_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_msg/msg/ros2_yolo__type_support.cpp.o[0m
+[2.538s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_introspection_c[0m
+[2.553s] [ 45%] [32mBuilding C object CMakeFiles/custom_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_msg/msg/detail/ros2_yolo__type_support.c.o[0m
+[2.560s] [ 48%] [32m[1mLinking CXX shared library libcustom_msg__rosidl_typesupport_c.so[0m
+[2.587s] [ 51%] [32m[1mLinking C shared library libcustom_msg__rosidl_typesupport_introspection_c.so[0m
+[2.605s] [ 51%] Built target custom_msg__rosidl_typesupport_c
+[2.622s] [ 51%] Built target custom_msg__rosidl_typesupport_introspection_c
+[2.744s] [ 54%] [32m[1mLinking CXX shared library libcustom_msg__rosidl_typesupport_cpp.so[0m
+[2.773s] [ 58%] [32m[1mLinking CXX shared library libcustom_msg__rosidl_typesupport_introspection_cpp.so[0m
+[2.784s] [ 58%] Built target custom_msg__rosidl_typesupport_cpp
+[2.830s] [ 58%] Built target custom_msg__rosidl_typesupport_introspection_cpp
+[2.908s] [ 61%] [32m[1mLinking CXX shared library libcustom_msg__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.987s] [ 61%] Built target custom_msg__rosidl_typesupport_fastrtps_cpp
+[2.996s] [ 64%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[3.191s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_fastrtps_c[0m
+[3.204s] [ 67%] [32mBuilding CXX object CMakeFiles/custom_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_msg/msg/detail/ros2_yolo__type_support_c.cpp.o[0m
+[3.522s] [ 70%] [32m[1mLinking CXX shared library libcustom_msg__rosidl_typesupport_fastrtps_c.so[0m
+[3.595s] [ 70%] Built target custom_msg__rosidl_typesupport_fastrtps_c
+[3.604s] [35m[1mScanning dependencies of target custom_msg[0m
+[3.613s] [ 70%] Built target custom_msg
+[3.623s] [35m[1mScanning dependencies of target custom_msg__py[0m
+[3.635s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.001s] [ 74%] Built target custom_msg__py
+[4.010s] [35m[1mScanning dependencies of target custom_msg__python[0m
+[4.026s] [ 77%] [32mBuilding C object CMakeFiles/custom_msg__python.dir/rosidl_generator_py/custom_msg/msg/_ros2_yolo_s.c.o[0m
+[4.105s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/custom_msg/libcustom_msg__python.so[0m
+[4.145s] [ 80%] Built target custom_msg__python
+[4.156s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_introspection_c__pyext[0m
+[4.156s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_c__pyext[0m
+[4.156s] [35m[1mScanning dependencies of target custom_msg__rosidl_typesupport_fastrtps_c__pyext[0m
+[4.174s] [ 87%] [32mBuilding C object CMakeFiles/custom_msg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/custom_msg/_custom_msg_s.ep.rosidl_typesupport_c.c.o[0m
+[4.174s] [ 87%] [32mBuilding C object CMakeFiles/custom_msg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/custom_msg/_custom_msg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.175s] [ 90%] [32mBuilding C object CMakeFiles/custom_msg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/custom_msg/_custom_msg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.250s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/custom_msg/custom_msg_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[4.250s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/custom_msg/custom_msg_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[4.251s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/custom_msg/custom_msg_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[4.289s] [100%] Built target custom_msg__rosidl_typesupport_introspection_c__pyext
+[4.289s] [100%] Built target custom_msg__rosidl_typesupport_c__pyext
+[4.316s] [100%] Built target custom_msg__rosidl_typesupport_fastrtps_c__pyext
+[4.326s] Invoked command in '/home/mingyu/rosyolo_final/build/custom_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake --build /home/mingyu/rosyolo_final/build/custom_msg -- -j12 -l12
+[4.379s] Invoking command in '/home/mingyu/rosyolo_final/build/custom_msg': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake --install /home/mingyu/rosyolo_final/build/custom_msg
+[4.387s] -- Install configuration: ""
+[4.387s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/ament_index/resource_index/rosidl_interfaces/custom_msg
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/rosidl_generator_c__visibility_control.h
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/ros2_yolo.h
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__type_support.h
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__functions.h
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__functions.c
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__struct.h
+[4.388s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/library_path.sh
+[4.389s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/library_path.dsv
+[4.389s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_generator_c.so
+[4.389s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_generator_c.so" to ""
+[4.389s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.389s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.389s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.389s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.389s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__rosidl_typesupport_fastrtps_c.h
+[4.390s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_fastrtps_c.so
+[4.390s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_fastrtps_c.so" to ""
+[4.390s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.390s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.390s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.390s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.390s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__rosidl_typesupport_fastrtps_cpp.hpp
+[4.390s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/dds_fastrtps
+[4.390s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_fastrtps_cpp.so
+[4.391s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[4.391s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.391s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.391s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.391s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__rosidl_typesupport_introspection_c.h
+[4.391s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__type_support.c
+[4.391s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.391s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_introspection_c.so
+[4.391s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_introspection_c.so" to ""
+[4.391s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_c.so
+[4.392s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_c.so" to ""
+[4.392s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.392s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.392s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.392s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__struct.hpp
+[4.392s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__builder.hpp
+[4.392s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__traits.hpp
+[4.393s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/ros2_yolo.hpp
+[4.393s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg
+[4.393s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg
+[4.393s] -- Up-to-date: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail
+[4.393s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__rosidl_typesupport_introspection_cpp.hpp
+[4.393s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/include/custom_msg/msg/detail/ros2_yolo__type_support.cpp
+[4.393s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_introspection_cpp.so
+[4.393s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_introspection_cpp.so" to ""
+[4.393s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_cpp.so
+[4.393s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__rosidl_typesupport_cpp.so" to ""
+[4.394s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/pythonpath.sh
+[4.394s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/pythonpath.dsv
+[4.394s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/__init__.py
+[4.422s] Compiling '/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/__init__.py'...
+[4.425s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/msg
+[4.426s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/msg/_ros2_yolo.py
+[4.426s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/msg/__init__.py
+[4.426s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/msg/_ros2_yolo_s.c
+[4.426s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[4.426s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[4.427s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[4.427s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[4.427s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[4.428s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/python3.8/site-packages/custom_msg/custom_msg_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__python.so
+[4.428s] -- Set runtime path of "/home/mingyu/rosyolo_final/install/custom_msg/lib/libcustom_msg__python.so" to ""
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/msg/Ros2Yolo.idl
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/msg/Ros2Yolo.msg
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/ament_index/resource_index/package_run_dependencies/custom_msg
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/ament_index/resource_index/parent_prefix_path/custom_msg
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/ament_prefix_path.sh
+[4.428s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/ament_prefix_path.dsv
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/path.sh
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/environment/path.dsv
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/local_setup.bash
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/local_setup.sh
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/local_setup.zsh
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/local_setup.dsv
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/package.dsv
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/ament_index/resource_index/packages/custom_msg
+[4.429s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_generator_cExport.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_generator_cExport-noconfig.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_introspection_cExport.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_cExport.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_cExport-noconfig.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_generator_cppExport.cmake
+[4.430s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_introspection_cppExport.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_cppExport.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msg__rosidl_typesupport_cppExport-noconfig.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/rosidl_cmake-extras.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/ament_cmake_export_libraries-extras.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/ament_cmake_export_targets-extras.cmake
+[4.431s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.432s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.432s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.432s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msgConfig.cmake
+[4.432s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/cmake/custom_msgConfig-version.cmake
+[4.432s] -- Installing: /home/mingyu/rosyolo_final/install/custom_msg/share/custom_msg/package.xml
+[4.435s] Invoked command in '/home/mingyu/rosyolo_final/build/custom_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /bin/cmake --install /home/mingyu/rosyolo_final/build/custom_msg
