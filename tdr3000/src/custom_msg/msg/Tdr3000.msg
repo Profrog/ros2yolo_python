@@ -1,0 +1,14 @@
+std_msgs/Header header
+float64 utc
+float64 latitude
+string hemisphere_lati
+float64 longitude
+string hemisphere_long
+float64 indicator
+float64 num_satellites
+float64 hdop
+float64 altitude
+string unit_altitude
+float64 geoidal_sep
+string unit_geoidal
+float64 heading_degree
