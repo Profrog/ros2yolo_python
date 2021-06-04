@@ -12,3 +12,4 @@ string unit_altitude
 float64 geoidal_sep
 string unit_geoidal
 float64 heading_degree
+string serial_data

@@ -47,32 +47,33 @@ class Tdr3000Publisher(Node):
 
 
     def timer_callback(self):
-        gnhdt = self.ser.readline()
-        serialBuffer = self.ser.readline()
-        msgList = self.tdr3000(serialBuffer)
-        gngga = self.ser.readline()
+        #gnhdt = self.ser.readline()
+        #serialBuffer = self.ser.readline()
+        #msgList = self.tdr3000(serialBuffer)
+        #gngga = self.ser.readline()
+        serial_a = self.ser.readline()
         
-        if len(msgList) <= 0:
+        if len(serial_a) <= 0:
             self.get_logger().info('INS(LLA) 데이터 형태가 아니거나 데이터가 부족합니다. 현재 데이터 형태는 "%s" 입니다.' % msgList[0])
         else:    
             msg = Tdr3000()
-            logString = ("\nLatitude : " 
-                         + msgList[3] + "\nLongitude : " + msgList[5] + "\nSpeedground : " + msgList[7]) 
+            #logString = ("\nLatitude : " 
+                         #+ msgList[3] + "\nLongitude : " + msgList[5] + "\nSpeedground : " + msgList[7]) 
                          
             # header
-            quo, rem = divmod(float(msgList[1]), 1)
-            quo = int(quo)
-            rem = round(rem*1000000)
+            #quo, rem = divmod(float(msgList[1]), 1)
+            #quo = int(quo)
+            #rem = round(rem*1000000)
             msg.header.frame_id = self.frame_id
             msg.header.stamp.nanosec = rem
             msg.header.stamp.sec = quo
             
             # sensor data
-            msg.latitude = float(msgList[3])
-            msg.longitude = float(msgList[5])
-            msg.speedground = float(msgList[7])
+            #msg.latitude = float(msgList[3])
+            #msg.longitude = float(msgList[5])
+            #msg.speedground = float(msgList[7])
             # msg.courseground = float(msgList[8])
-            
+            msg.serial_data = serial_a
           
 
             # pup msg
