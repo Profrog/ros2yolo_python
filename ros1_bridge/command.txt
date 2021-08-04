@@ -1,0 +1,13 @@
+catkin_make
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+roslaunch usb_cam usb_cam.launch
+rqt_image_view
+<node name="sub_cam_node" pkg="usb_cam" type="sub_cam_node"/>
+gnome-terminal -- ./rosyolo_camera_sh
+ls -ltrh /dev/video* 
+source /opt/ros/noetic/setup.bash
+rosbag record /usb_cam_node/image_raw
+rostopic echo /usb_cam/IMU
+source /opt/ros/foxy/setup.bash
+ros2 run ros1_bridge simple_bridge_1_to_2
