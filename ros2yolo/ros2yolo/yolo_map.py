@@ -18,6 +18,11 @@ yolomap0 = np.zeros((map_x,map_y))
 global image_name
 image_name = 'yolomap1.png'
 
+global seq
+seq = 0 
+
+global image_dir
+image_dir = 'map_data/'
 
 
 class Yolomap(Node):
@@ -45,16 +50,17 @@ class Yolomap(Node):
       
         
        camera_x = int(map_x/2)
-       camera_y = int(0)
+       camera_y = 0
        
        #yolomap0 = np.zeros((map_x,map_y))    
-       self.point_mark(int(camera_x - map_x/100) ,int(camera_x + map_x/100) , int(camera_y) , int(camera_y + map_y/50) , 2)
+       #self.point_mark(int(camera_x - map_x/10) ,int(camera_x + map_x/10) , int(camera_y) , int(camera_y + map_y/5) , 2)
       
       
-       o_map_xl = int((msg.o_x - msg.o_size_x)*100) + camera_x
-       o_map_xr = int((msg.o_x + msg.o_size_x)*100) + camera_x
-       o_map_yf = int(msg.o_y * 100) + camera_y
-       o_map_yb = int((msg.o_y + msg.o_size_z)*100) + camera_y
+        
+       o_map_xl = int((msg.o_x*100 - msg.o_size_x)) + camera_x
+       o_map_xr = int((msg.o_x*100 + msg.o_size_x)) + camera_x
+       o_map_yf = int((msg.o_y*100 - msg.o_size_z)) + camera_y
+       o_map_yb = int((msg.o_y*100 + msg.o_size_z)) + camera_y
        
           
        if o_map_xl < 0: o_map_xl = 0
@@ -81,6 +87,17 @@ class Yolomap(Node):
        
        
        plt.matshow(yolomap0)
+
+       global seq 
+       if seq < 100:
+        seq +=1
+       
+       else:
+        seq = 1
+                
+       image_name =  image_dir + "yolomap" + str(seq) + ".jpg"
+
+
        
        if os.path.isfile(image_name):
         os.remove(image_name) 
