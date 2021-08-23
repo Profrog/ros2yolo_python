@@ -70,15 +70,32 @@ h_fov = 74
 
 #### about camera ######
 
+global i_sizex
+i_sizex = 12
+global i_sizey
+i_sizey = 9
+
+global sensor_len
+sensor_len = 0.15
 
 global image_d
 global where_obj 
 
-  
 global d_info
 global d_info0
- 
 
+global y_image_dir
+y_image_dir = 'web_yolo/webyolo'
+
+global base_real_dia
+base_real_dia = 1.8
+
+global base_image_dia
+base_image_dia = 5.33 #이미지 에서 대각선 길이가 5.33일때 실제로는 1.8m 떨어져 있는 것
+
+global seq
+seq = 0 
+ 
 #### about data #####
   
   
@@ -92,6 +109,16 @@ def encode_img(img_fn):#encoding for img to string
 def decode_img(message): #decoding for string to img
  imgdata = base64.b64decode(str(message))
  image = Image.open(io.BytesIO(imgdata))
+
+ global seq
+ if seq < 100:
+  seq +=1
+       
+ else:
+  seq = 1
+ 
+ yolo_image = y_image_dir + str(seq) + ".jpg" 
+
  image.save(yolo_image) #yolo_image here
 
         
@@ -133,7 +160,7 @@ class Ros2yoloPublisher(Node):
          #cv2.imwrite(original_image,frame)     
          image = cv2.imread(original_image)
          #image = cv2.resize(image, None, fx=0.4, fy=0.4)
-         height, width, channels = image.shape
+         height, width, channels = image.shape #image의 크기
              
          barcodes = pyzbar.decode(image)       
          blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False) #it about detect_size. check it 416*416
@@ -161,13 +188,11 @@ class Ros2yoloPublisher(Node):
             boxes.append([x, y, w, h])
             confidences.append(float(confidence))
             class_ids.append(class_id)
-                
-                
+                               
                 
             indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)  
             font = cv2.FONT_HERSHEY_PLAIN
-            
-            
+                      
              
             for i in range(len(boxes)):
              if i in indexes:
@@ -184,9 +209,9 @@ class Ros2yoloPublisher(Node):
                                             
                stringx = string0[x_s + len(label):x_s + len(label) + 20]
                linex = re.findall(r'(?<!\.)[-+]?\b\d+\.\d+(?!\.)\b', stringx)
-               size_x = linex[0]
-               size_y = linex[1] # getting image size
-               size_z = linex[2]
+               size_x = float(linex[0]) * 100
+               size_y = float(linex[1]) * 100 # getting object real size
+               size_z = float(linex[2]) * 100
                
                image_d = math.sqrt(width*width + height*height)
                size_d = math.sqrt(w*w + h*h)
@@ -197,19 +222,27 @@ class Ros2yoloPublisher(Node):
                fov_w = 2* (width / focal_l)  
                fov_h = 2* (height / focal_l)
                
-               
+              
                fov_ww = (fov_w * math.pi/180) * w/width
                fov_hh = (fov_h * math.pi/180) * h/height
                
                 
                where_obj = obj_d/math.tan(fov_d)
                where_obj_x = (x + w/2 - width/2) * (obj_d/2) / (size_d/2)
-               where_obj_y = math.sqrt(where_obj*where_obj - where_obj_x*where_obj_x)
-               #where_obj_y = (y + h/2 - height/2) * (obj_d/2) / (size_d/2) #about y-asix
-               d_info = label + ","  + str(where_obj) + "," + str(where_obj_x) + "," + str(where_obj_y) + "\n"
+               #where_obj_y = math.sqrt(where_obj*where_obj - where_obj_x*where_obj_x)
+               where_obj_y = (y + h/2 - height/2) * (obj_d/2) / (size_d/2) #about y-asix
+
+               test_x = w*i_sizex/width
+               test_y = h*i_sizey/height
+               test_d = math.sqrt(float(test_x)*float(test_x) + float(test_y)*float(test_y))
+               test_d = base_real_dia * base_image_dia / test_d #(test_d는 image에서 측정된 장해물의 길이)
+
+               test_d_x = ((x + w/2 - width/2)* math.tan(fov/2 * math.pi/180) * test_d) /(width/2)
+               test_d_y = ((y + h/2 - height/2)* math.tan(fov/2 * math.pi/180) * test_d) /(height/2)                                
+               d_info = label + ","  + str(test_d) + "," + str(test_d_x) + "," + str(test_d_y) + "\n"
                
                if d_info0 != d_info:                        
-                color = colors[i]
+                color = colors[class_ids[i]]
                 cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
                 cv2.putText(image, label, (x, y + 30), font, 3, color, 3)
                 cv2.putText(image, str(where_obj), (x, y + 60), font, 3, color, 3)
@@ -222,8 +255,8 @@ class Ros2yoloPublisher(Node):
                  msg.o_image = encode_img(image)
                  msg.detect_info = d_info
                  msg.o_label = label
-                 msg.o_x = where_obj_x
-                 msg.o_y = where_obj_y
+                 msg.o_x = test_d_x
+                 msg.o_y = test_d
                  msg.o_size_x = float(size_x)
                  msg.o_size_z = float(size_z)
                   
