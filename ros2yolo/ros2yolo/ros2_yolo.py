@@ -1,3 +1,4 @@
+from numpy.core.fromnumeric import size
 import rclpy
 from rclpy.node import Node
 
@@ -26,6 +27,12 @@ import re
 import math
 
 
+#lifecam vx-2000
+
+#Megapixel *1,3 MP
+#Maximum video resolution *640 x 480 pixels
+#Maximum frame rate 30 fps
+#Digital zoom 3x
 ######about image###########
 
 global yolo_image  #after yolo detecting image
@@ -68,13 +75,21 @@ global fov
 fov = 55
 #other fov = 55
 
-global w_fov
-w_fov = 122
+global ccd #mm 100cm = 1metter
+ccd = 8.933 * 100
+
+global pixel_t_met
+pixel_t_met = 3779.5275590551 #1 meter당 pixel의 양
+
+global focal_l 
+focal_l = ccd/(2* math.tan(fov/2 * math.pi/180)) #초점거리를 구하기 위한 공식 ,단위 mm
 
 
-global h_fov
-h_fov = 74
+#global w_fov
+#w_fov = 122
 
+#global h_fov
+#h_fov = 74
 #### about camera ##########
 
 
@@ -90,6 +105,9 @@ global d_info0
 global seq
 seq = 0 
  
+global cancel_p
+cancel_p = 0
+
 #### about data #####
   
   
@@ -128,16 +146,20 @@ def decode_img(message): #decoding for string to img
 
 ###ros2###        
 class Ros2yoloPublisher(Node):
-
+    
     def __init__(self, Hz):
         super().__init__('ros2yolo_publisher')
         self.frame_id = 'ros2yolo'
         self.publisher_ = self.create_publisher(Ros2Yolo, self.frame_id , 1)
         timer_period = 1/Hz  # seconds , how frequency pub data
+        signal.signal(signal.SIGINT, self.sigint_handler)
         self.timer = self.create_timer(timer_period, self.yolo)
-        
-    def yolo(self):
-     
+
+    def sigint_handler(signal, frame):
+     print("프로그램 종료")
+     sys.exit(0)
+
+    def yolo(self):   
         try:  
          d_info0 = ""      
          net = cv2.dnn.readNet(dir_weights, dir_cfg)
@@ -159,6 +181,8 @@ class Ros2yoloPublisher(Node):
          image = cv2.imread(original_image)
          #image = cv2.resize(image, None, fx=0.4, fy=0.4)
          height, width, channels = image.shape
+
+         #print(str(width) + " " + str(height))
              
          barcodes = pyzbar.decode(image)       
          blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False) #it about detect_size. check it 416*416
@@ -175,14 +199,14 @@ class Ros2yoloPublisher(Node):
            scores = detection[5:]
            class_id = np.argmax(scores)
            confidence = scores[class_id]
-           if confidence > 0.7:
+           if confidence > 0.5:
             # Object detected
-            center_x = int(detection[0] * width)
+            center_x = int(detection[0] * width) #center_x, center_y는 객체의 좌표
             center_y = int(detection[1] * height)
-            w = int(detection[2] * width)
-            h = int(detection[3] * height)
+            w = int(detection[2] * width) #w,h는 이미지 상에서 물체의 크기
+            h = int(detection[3] * height) #width, height는 이미지의 크기
             # 좌표
-            x = int(center_x - w / 2)
+            x = int(center_x - w / 2) 
             y = int(center_y - h / 2)
             boxes.append([x, y, w, h, confidence, class_id])
             confidences.append(float(confidence))
@@ -214,28 +238,18 @@ class Ros2yoloPublisher(Node):
                 print(stringx)
                 
                 
-               size_x = linex[0]
-               size_y = linex[1] # getting image size
-               size_z = linex[2]
+               size_x = linex[0] # detect.txt의 내용기초 , getting image size
+               size_y = linex[1] # size_x는 정면시 물체의 가로 #size_y는 세로 size_z는 높이
+               size_z = linex[2] # 일반적인 상황에서는 
                
-               image_d = math.sqrt(width*width + height*height)
-               size_d = math.sqrt(w*w + h*h)
-               obj_d = math.sqrt(float(size_x)*float(size_x) + float(size_y)*float(size_y))               
-               fov_d = (fov * math.pi/180) * size_d/image_d
+               image_d = math.sqrt(width*width + height*height) #사진의 크기
+               size_d = math.sqrt(w*w + h*h) #사진에서 해당 물체의 크기(상대적)
+               obj_d = math.sqrt(float(size_x)*float(size_x) + float(size_z)*float(size_z)) #물체의 실제크기(차원 고려)               
                
-               focal_l = (image_d/math.tan(fov/2 * math.pi/180))/2               
-               fov_w = 2* (width / focal_l)  
-               fov_h = 2* (height / focal_l)
-               
-               
-               fov_ww = (fov_w * math.pi/180) * w/width
-               fov_hh = (fov_h * math.pi/180) * h/height
-               
-                
-               where_obj = obj_d/math.tan(fov_d)
-               where_obj_x = (x + w/2 - width/2) * (obj_d/2) / (size_d/2)
-               where_obj_y = math.sqrt(where_obj*where_obj - where_obj_x*where_obj_x)
-               #where_obj_y = (y + h/2 - height/2) * (obj_d/2) / (size_d/2) #about y-asix
+                    
+               where_obj = (focal_l * obj_d) / size_d
+               where_obj_x = (center_x - width/2) * where_obj/focal_l
+               where_obj_y = (center_y - width/2) * where_obj/focal_l
                d_info = label + ","  + str(where_obj) + "," + str(where_obj_x) + "," + str(where_obj_y) + "\n"
                
                if d_info0 != d_info:                        
@@ -268,7 +282,7 @@ class Ros2yoloPublisher(Node):
                 
                                              
               except BaseException as e:
-               print("검출 클래스의 크기가 사이즈 파일안에 올바르게 기입되어 있는지 확인하세요")
+               print(str(label) + " ,검출 클래스의 크기가 사이즈 파일안에 올바르게 기입되어 있는지 확인하세요")
                d_info = ""             
                #####//size####
                
@@ -276,6 +290,9 @@ class Ros2yoloPublisher(Node):
         except BaseException as f:
           print("yolo 검출 중에 에러가 발생했습니다.")
           d_info = ""
+          sys.exit(0)
+
+          
                                                       
         cv2.destroyAllWindows()
         msg = Ros2Yolo()
@@ -285,7 +302,7 @@ class Ros2yoloPublisher(Node):
 def main(args=None):
 
     rclpy.init(args=args)
-    ros2yolo_publisher = Ros2yoloPublisher(2) # sensor frequerency is here
+    ros2yolo_publisher = Ros2yoloPublisher(1) # sensor frequerency is here
     rclpy.spin(ros2yolo_publisher)
 
     ros2yolo_publisher.destroy_node()
