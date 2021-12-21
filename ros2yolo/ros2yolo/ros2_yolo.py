@@ -76,10 +76,10 @@ fov = 55
 #other fov = 55
 
 global ccd #mm 100cm = 1metter
-ccd = 8.933 * 100
+ccd = 8 * 1000
 
 global pixel_t_met
-pixel_t_met = 3779.5275590551 #1 meter당 pixel의 양
+pixel_t_met = 3779.5275590551 #1 meter당 pixel의 양 3x -> 약 1000 ->
 
 global focal_l 
 focal_l = ccd/(2* math.tan(fov/2 * math.pi/180)) #초점거리를 구하기 위한 공식 ,단위 mm
@@ -194,8 +194,10 @@ class Ros2yoloPublisher(Node):
          boxes = []
               
          d_info = ""
-         for out in outs: ##yolo detection
-          for detection in out:
+
+         out = outs[-1]
+         #for out in outs: ##yolo detection
+         for detection in out:
            scores = detection[5:]
            class_id = np.argmax(scores)
            confidence = scores[class_id]
@@ -246,8 +248,8 @@ class Ros2yoloPublisher(Node):
                size_d = math.sqrt(w*w + h*h) #사진에서 해당 물체의 크기(상대적)
                obj_d = math.sqrt(float(size_x)*float(size_x) + float(size_z)*float(size_z)) #물체의 실제크기(차원 고려)               
                
-                    
-               where_obj = (focal_l * obj_d) / size_d
+
+               where_obj = (focal_l * obj_d) / size_d * (ccd/image_d) #  meter * meter / (해상도 ->meter)
                where_obj_x = (center_x - width/2) * where_obj/focal_l
                where_obj_y = (center_y - width/2) * where_obj/focal_l
                d_info = label + ","  + str(where_obj) + "," + str(where_obj_x) + "," + str(where_obj_y) + "\n"
