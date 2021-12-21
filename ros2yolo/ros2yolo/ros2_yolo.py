@@ -76,7 +76,7 @@ fov = 55
 #other fov = 55
 
 global ccd #mm 100cm = 1metter
-ccd = 8 * 1000
+ccd = 8
 
 global pixel_t_met
 pixel_t_met = 3779.5275590551 #1 meter당 pixel의 양 3x -> 약 1000 ->
@@ -248,19 +248,18 @@ class Ros2yoloPublisher(Node):
                size_d = math.sqrt(w*w + h*h) #사진에서 해당 물체의 크기(상대적)
                obj_d = math.sqrt(float(size_x)*float(size_x) + float(size_z)*float(size_z)) #물체의 실제크기(차원 고려)               
                
-
-               where_obj = (focal_l * obj_d) / size_d * (ccd/image_d) #  meter * meter / (해상도 ->meter)
+              
+               where_obj = (image_d/ccd) * ((focal_l * obj_d) / size_d) #  meter * meter / (해상도 ->meter)
                where_obj_x = (center_x - width/2) * where_obj/focal_l
                where_obj_y = (center_y - width/2) * where_obj/focal_l
-               d_info = label + ","  + str(where_obj) + "," + str(where_obj_x) + "," + str(where_obj_y) + "\n"
-               
+               d_info = label + ","  + str(where_obj) + "," + str(where_obj_x) + "," + str(size_y) + "\n"
+         
                if d_info0 != d_info:                        
                 color = colors[clid]
                 cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
                 cv2.putText(image, label, (x, y + 30), font, 3, color, 3)
                 #cv2.putText(image, str(conf), (x, y + 60), font, 3, color, 3)
-                #d_info = label + ","  + str(x) + "," + str(y) + "," + str(w) + "," + str(h) + " " + str(fov_w) + " " + str(fov_h) + "\n"
-               
+                #d_info = label + ","  + str(x) + "," + str(y) + "," + str(w) + "," + str(h) + " " + str(fov_w) + " " + str(fov_h) + "\n" 
                 # cv2.imshow("Image", image)
                
                 if d_info != "":
@@ -270,9 +269,9 @@ class Ros2yoloPublisher(Node):
                  msg.detect_info = d_info
                  msg.o_label = label
                  msg.o_x = where_obj_x
-                 msg.o_y = where_obj_y
+                 msg.o_y = where_obj
                  msg.o_size_x = float(size_x)
-                 msg.o_size_z = float(size_z)
+                 msg.o_size_y = float(size_y)
                  msg.target_num = int(count)
                  
                  #print(count) 
@@ -293,9 +292,7 @@ class Ros2yoloPublisher(Node):
           print("yolo 검출 중에 에러가 발생했습니다.")
           d_info = ""
           sys.exit(0)
-
-          
-                                                      
+                                                     
         cv2.destroyAllWindows()
         msg = Ros2Yolo()
         msg.o_label = "zero"
