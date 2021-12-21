@@ -4,16 +4,17 @@ from custom_msg.msg import Ros2Yolo     # CHANGE
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import sys
 from bresenham import bresenham
 
-global map_x
+global map_x #cm
 map_x = 500
 
-global map_y
+global map_y #cm
 map_y = 500
 
 
-global yolomap0
+global yolomap0 #map의 크기
 yolomap0 = np.zeros((map_x,map_y))
 
 global image_name
@@ -52,23 +53,25 @@ class Yolomap(Node):
         self.subscription = self.create_subscription(Ros2Yolo, self.frame_id ,self.listener_callback, 1)
         timer_period = 1/Hz  # seconds , how frequency pub data
         msg = Ros2Yolo
-        
-        
-    def point_mark(self,x1,x2,y1,y2,data):    
+
+    def unregister(self):
+       sys.exit(0)    
+                
+    def point_mark(self,x1,x2,y1,y2,data): #객체의 크기만큼 색칠
      for x0 in range(x1,x2 +1,1):
        for y0 in range(y1,y2 +1,1):
          yolomap0[x0,y0] = int(data) #after using other way  
         
-    def inclination(self,p1, p2):
+    def inclination(self,p1, p2): #두 점 사이의 벡터
      return p2[0] - p1[0], p2[1] - p1[1]
  
-    def ccw(self,p1, p2, p3):
+    def ccw(self,p1, p2, p3): #ccw 구하기
      v, u = self.inclination(p1, p2), self.inclination(p2, p3)
      if v[0] * u[1] > v[1] * u[0]:
         return True
      return False
 
-    def convex_hull(self,graham_list):
+    def convex_hull(self,graham_list): 
      convex = list()
      for p3 in graham_list:
          while len(convex) >= 2:
@@ -108,7 +111,6 @@ class Yolomap(Node):
        elif mode == 2 and yolomap0[x0,y0] > inline:
         last_index = x0 + 1
 
-
        elif mode == 2 and yolomap0[x0,y0] < outline:       
         yolomap0[x0,y0] = inline
         mode = 3
@@ -118,12 +120,10 @@ class Yolomap(Node):
       
        elif mode == 3 and yolomap0[x0,y0] < outline:
         yolomap0[x0,y0] = inline
-
          
       for x1 in range(last_index,map_x,1):
        if yolomap0[x1,y0] < outline:   
         yolomap0[x1,y0] = 0
-
                  
      return len(convex)
     
@@ -141,17 +141,20 @@ class Yolomap(Node):
         global yolomap0
         yolomap0 = np.zeros((map_x,map_y))
         return
-
-       
+ 
        #yolomap0 = np.zeros((map_x,map_y))    
-       #self.point_mark(int(camera_x - map_x/100) ,int(camera_x + map_x/100) , int(camera_y) , int(camera_y + map_y/50) , 2)
+       self.point_mark(int(camera_x - map_x/100) ,int(camera_x + map_x/100) , int(camera_y) , int(camera_y + map_y/50) , 2)
+       #camera coloring
       
+       print(str(msg.o_x))
       
-       o_map_xl = int((msg.o_x - msg.o_size_x)*100) + camera_x
-       o_map_xr = int((msg.o_x + msg.o_size_x)*100) + camera_x
-       o_map_yf = int(msg.o_y * 100) + camera_y
-       o_map_yb = int((msg.o_y + msg.o_size_z)*100) + camera_y
+       o_map_xl = int(camera_x + msg.o_x) 
+       o_map_xr = o_map_xl + int(msg.o_size_x*100)
+       o_map_yf = int(camera_y + msg.o_y*100)
+       o_map_yb = o_map_yf + int(msg.o_size_y*100)
        
+       print(msg.o_label + ":" + str(o_map_xl) + "," + str(o_map_xr) + "^" + str(o_map_yf) + "," + str(o_map_yb)+ "+" + str(x_s) + "\n")
+
        if o_map_xl < 0: o_map_xl = 0
        if o_map_xl >= map_x: o_map_xl = map_x - 1
        if o_map_xr < 0: o_map_xr = 0
@@ -162,7 +165,7 @@ class Yolomap(Node):
        if o_map_yb < 0: o_map_yb = 0
        if o_map_yb >= map_y: o_map_yb = map_y - 1
        
-       print(msg.o_label + ":" + str(o_map_xl) + "," + str(o_map_xr) + "^" + str(o_map_yf) + "," + str(o_map_yb)+ "+" + str(x_s) + "\n")
+       
        
        
          
@@ -204,15 +207,13 @@ class Yolomap(Node):
                 
      except BaseException as e:
       print(e)  
-      
      
 
-         
-       
+
 
 def main(args=None):
     rclpy.init(args=args)
-    yolo_map = Yolomap(2)
+    yolo_map = Yolomap(1)
     rclpy.spin(yolo_map)
 
     yolo_map.destroy_node()
