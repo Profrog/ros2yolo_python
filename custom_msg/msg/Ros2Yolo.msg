@@ -4,5 +4,5 @@ string o_label
 float64 o_x 
 float64 o_y
 float64 o_size_x
-float64 o_size_z
+float64 o_size_y
 int32 target_num
