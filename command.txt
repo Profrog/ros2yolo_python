@@ -1,0 +1,5 @@
+catkin_make
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+ROS_HOME=`pwd` roslaunch usb_cam usb_cam.launch
+rqt_image_view
